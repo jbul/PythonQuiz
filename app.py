@@ -43,7 +43,7 @@ def get_data_in_file(path, filename):
     return data
 
 
-# Returns all the quiz
+# Returns all the quiz array format
 def get_all_quiz(path):
     return get_data_in_file(path, "quiz.json")["quiz_list"]
 
