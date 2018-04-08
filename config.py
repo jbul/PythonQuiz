@@ -1,0 +1,2 @@
+SESSION_LOGIN = "admin"
+SESSION_PWD = "Admin1"

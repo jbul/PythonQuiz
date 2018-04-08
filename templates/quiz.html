@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Quiz : Quiz page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-reboot.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-grid.min.css') }}">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <h1>{{title}}</h1>
+        <br/>
+        <form action="/quizChallenge" method="POST">
+          {% for question in questions %}
+            <h4>{{ question.title}}</h4>
+            {% for choice in question.choices %}
+              <span class="ml-5">
+                <label for="choice{{choice}}">{{choice}}</label>
+                <input id="choice{{choice}}"
+                       type="radio"
+                       name="{{question.title}}"
+                       value="{{choice}}" required/>
+              </span>
+            {% endfor %}
+            <br/>
+            <br/>
+          {% endfor %}
+          <br/>
+          <input type="text" name="username" placeholder="Username" value="" required/>
+          <input type="hidden" name="quiz_index" value="{{quiz_index}}"/>
+          <input type="submit" class="btn btn-primary"  value="Submit Quiz"/>
+        </form>
+        <a href="/">Return to main page</a>
+      </div>
+      <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.slim.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/popper/popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>

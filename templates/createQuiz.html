@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Quiz</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-reboot.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-grid.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <h1>Make your own quiz !</h1>
+        <br/>
+        <form action="/submitQuiz" method="POST">
+          <label>Quiz Title</label> <input type="text" name="quizTitle" placeholder="Your Quiz Title" required />
+          <br/>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="question-list">
+              <tr>
+                <th>Question</th>
+                <th>Choice 1</th>
+                <th>Choice 2</th>
+                <th>Choice 3</th>
+                <th>Choice 4</th>
+                <th>Answer</th>
+                <th></th>
+              </tr>
+              <tr>
+                <td><input type="text" name="question-title-0" placeholder="Question Title" required/></td>
+                <td><input type="text" name="question-choice-1-0" placeholder="Choice 1" required/></td>
+                <td><input type="text" name="question-choice-2-0" placeholder="Choice 2" required/></td>
+                <td><input type="text" name="question-choice-3-0" placeholder="Choice 3" required/></td>
+                <td><input type="text" name="question-choice-4-0" placeholder="Choice 4" required/></td>
+                <td>
+                  <select name="question-answer-0">
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                    <option value="3">4</option>
+                  </select>
+                </td>
+                <td><a href="#" class="remove">X</a></td>
+              </tr>
+            </table>
+          </div>
+          <button id="add-question">Add question</button>
+          <br/>
+          <br/>
+          <input type="text" name="username" placeholder="Username" required/>
+          <input type="submit" value="Send your quiz" />
+        </form>
+        <br/>
+        <a href="/">Return to main page</a>
+      </div>
+      <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.slim.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/popper/popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    </body>
+</html>

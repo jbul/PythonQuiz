@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{result.quiz_title}}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-reboot.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-grid.min.css') }}">
+    </head>
+    <body>
+      <div class="container-fluid">
+        <h1>{{result.quiz_title}}</h1>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <tr>
+              <th>#</th>
+              <th>Question</th>
+              <th>Result</th>
+              <th>Given</th>
+              <th>Expected</th>
+            </tr>
+            {% for answer in result.quiz_result %}
+              {% if result.quiz_result[answer].result == True %}
+              <tr class="table-success">
+              {% else %}
+              <tr class="table-danger">
+              {% endif %}
+                <td>{{answer + 1}}</td>
+                <td>{{result.quiz_result[answer].title}}</td>
+                <td>{{result.quiz_result[answer].result}}</td>
+                <td>{{result.quiz_result[answer].given}}</td>
+                <td>{{result.quiz_result[answer].expected}}</td>
+              </tr>
+            {% endfor %}
+            <tr>
+              <td colspan="2"></td>
+              <td><b>Total<b></td>
+              <td colspan="2">{{result.overall.total}} %</td>
+            </tr>
+          </table>
+        </div>
+        <span><a href="/">Return to main page</a>  |  <a href="/seeAllResults">See all results</a></span>
+      </div>
+      <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.slim.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/popper/popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>

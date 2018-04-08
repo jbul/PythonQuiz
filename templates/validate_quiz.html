@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Quiz</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-reboot.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-grid.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    </head>
+    <body>
+      <div class="container-fluid">
+        {% if logged %}
+          <h1>Quiz Administration</h1>
+          <br/>
+            {% for proposition in propositions %}
+              <div class="proposition">
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample-{{ proposition.username }}" role="button" aria-expanded="false" aria-controls="collapseExample-{{ proposition.username }}">
+                  {{ proposition.username }}'s quiz proposition
+                </a>
+                <div class="collapse" id="collapseExample-{{ proposition.username }}">
+                <div class="card card-body">
+                  <h4>{{proposition.title}}</h4>
+                  <p><b>from : </b>{{proposition.username}}</p>
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                      <tr>
+                        <th>Question</th>
+                        <th>Choice 1</th>
+                        <th>Choice 2</th>
+                        <th>Choice 3</th>
+                        <th>Choice 4</th>
+                      </tr>
+                      {% for question in proposition.questions %}
+                        <tr>
+                          <td>{{question.title}}</td>
+                          {% for choice in question.choices %}
+                          <td>{{choice}}</td>
+                          {% endfor %}
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                  <form action="/saveQuiz" method="POST">
+                    <input type="hidden" name="quizUsername" value="{{proposition.username}}" />
+                    <input type="submit" value="Validate" />
+                  </form>
+                </div>
+              </div>
+              </div>
+              <br/>
+            {% endfor %}
+        {% else %}
+          <p>You cannot access this page, you have to <a href="/login">login</a> first
+        {% endif %}
+      </div>
+      <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.slim.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/popper/popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    </body>
+</html>

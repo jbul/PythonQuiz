@@ -1,0 +1,63 @@
+{
+  "quiz_list" : [
+  {
+    "title" : "Game Of Thrones Related Questions",
+    "questions" : [
+      {
+        "title" : "What are the two weapons/ mmethods you can use to kill a white walker ?",
+        "choices" : ["Dragonglass and dismemberment", "Beheading and fire", "Dragonglass and Valyrian steel", "A stake and fire"],
+        "answer" : 2
+      },{
+        "title" : "According to Tyrion, what is he the God of ?",
+        "choices" : ["War and wine", "Dragons and war", "War and tits", "Tits and wine"],
+        "answer" : 3
+      },{
+        "title" : "What is the name of Jon Snow's Direwolf?",
+        "choices" : ["Grey Wind", "Graham", "Ghost", "Gargamel"],
+        "answer" : 2
+      },{
+        "title" : "Gendry is the bastard son of which character?",
+        "choices" : ["Robert Baratheon", "Jamie Lannister", "Ned Stark", "The Mad King"],
+        "answer" : 0
+      },{
+        "title" : "Who said, 'Go drink until it feels like you did the right thing'?",
+        "choices" : ["Broon", "Tyrion Lannister", "Ned Stark"],
+        "answer" : 0
+      },{
+        "title" : "What is the official Lannister family motto?",
+        "choices" : ["Hear me roar", "A Lannister always pays his debts", "None So Fierce", "The Mad King"],
+        "answer" : 1
+      }
+    ]
+  },{
+      "title" : "Harry Potter Quiz",
+      "questions" : [
+        {
+          "title" : "Which of these is NOT one of the Unforgivable Curses?",
+          "choices" : ["Cruciatus Curse", "Imperius Curse", "Sectumsempra", "Avada Kedavra"],
+          "answer" : 2
+        },{
+          "title" : "Who guards the entrance to the Gryffindor common room?",
+          "choices" : ["The Grey Lady", "The Fat Friar", "The Bloody Baron", "The Fat Lady"],
+          "answer" : 3
+        },{
+          "title" : "Who is NOT a member of the Order of the Phoenix?",
+          "choices" : ["Cornelius Fudge", "Mad-Eye-Moody", "Professor Snape", "Remus Lupin"],
+          "answer" : 0
+        },{
+          "title" : "A wizard who cannot do magic is known as a:",
+          "choices" : ["Bleaker", "Squib", "Duddle", "Wizont"],
+          "answer" : 1
+        },{
+          "title" : "How many Weasley siblings are there?",
+          "choices" : ["5", "7", "6", "8"],
+          "answer" : 1
+        },{
+          "title" : "What is the model of the first broom Harry ever receives?",
+          "choices" : ["Cleansweep one", "Nimbus 2000", "Hoover", "Firebolt"],
+          "answer" : 1
+        }
+      ]
+    }
+  ]
+}

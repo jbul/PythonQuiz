@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Python Quiz</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-reboot.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap-grid.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    </head>
+    <body>
+      <div class="container-fluid">
+        {% if session["logged"] %}
+          <p>Go to <a href="/validateQuiz">Administration page</a></p>
+        {% else%}
+          <a class="btn btn-primary" href="/login">Login</a>
+        {% endif %}
+        <div id="launch-quiz" class="position-absolute">
+          <form action="/quiz" method="POST">
+            <select name="quiz">
+              {% for quiz in quiz_list %}
+                <option value="{{quiz}}">{{quiz_list[quiz]}}</option>
+              {% endfor %}
+            </select>
+            <input class="btn btn-primary" type="submit" value="Start Quiz" />
+          </form>
+          <span>
+            <a href="/seeAllResults">See all results</a> | <a href="/createQuiz">Create your own quiz</a>
+          </span>
+        </div>
+      </div>
+      <script src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.slim.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/popper/popper.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>
