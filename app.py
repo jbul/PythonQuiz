@@ -115,7 +115,7 @@ def saveQuizInformation(path, quizInfo=None):
         result["added_date"] = get_current_date()
 
         quizLength = len(quizInfo)
-        for idx in range(0, ((quizLength - 2)) / 5) :
+        for idx in range(0, ((quizLength - 2)) // 5) :
             entry = {}
             entry["title"] = quizInfo["question-title-{0}".format(idx)]
             entry["choices"] = [
